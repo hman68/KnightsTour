@@ -54,7 +54,8 @@
 		printBoard()
  */
  import java.util.*;
- public class KnightsTour{
+
+public class KnightsTour{
 	 private int[][] chessboard; //Stores the chessboard as a 2D int array
 	 private int x; // The current x position of the knight
 	 private int y; // The current y position of the knight
@@ -78,7 +79,7 @@
 
 	 /**
 	  * Will use the best move as determined by simulateMove and then will update the position of the knight and the current square nubmer accordingly.
-	  * If the simulateMove cannot determine a correct position, the method is returned and the tour ceases.
+	  * <p></p> If the simulateMove cannot determine a correct position, the method is returned and the tour ceases.
 	  */
 	 public void move(){
 		 int move = simulateMove();
@@ -95,8 +96,8 @@
 	 /**
 	  * Determines all legal moves the knight can make from the position defined in the parameters
 	  * A move is determined as legal if:
-	  *  -The destination square after the move is on the chessboard
-	  *  -The destination square after the move is currently empty (not yet been touched by the knight)
+	  * <p> -The destination square after the move is on the chessboard</p>
+	  * <p> -The destination square after the move is currently empty (not yet been touched by the knight)</p>
 	  * @param x The x position of the square to check from
 	  * @param y The y position of the square to check from
 	  * @return An ArrayList containing all possible moves that can be made from the square
@@ -142,7 +143,7 @@
 	 }
 
 	 /**
-	  * Prints the chessboard with the number each square is assigned, representing the move the knight was on when it entered that square
+	  * Prints the chessboard formatted so that it is an even square. <p><b>Any numbers below 10 have a 0 added to the beginning</b><</p>
 	  */
 	 public void printBoard() {
 		 for (int[] row : chessboard) {
@@ -164,17 +165,28 @@
 	 	int[][] chssbrd = new int[8][8];
 	 	// While the initial X position is invalid, keep checking for a new x position
 	 	while(initX < 0 || initX > chssbrd[0].length-1){
-	 		System.out.print("Please input the initial x position of the knight: ");
-	 		initX = s.nextInt() -1;
-
+	 		System.out.print("Please input the initial x position of the knight(1-"+chssbrd[0].length+"): ");
+	 		//If the next line in the scanner is an int, accept it, else, don't
+	 		if(s.hasNextInt()){
+	 			initX = s.nextInt()-1;
+			}else {
+	 			s.nextLine();
+			}
+			//If the input is not within range, send a message telling the user that, and ask them to try again
 	 		if(initX < 0 || initX > chssbrd[0].length){
 	 			System.out.println("Sorry that is not a valid x position, please try again. (Valid inputs are from 1-"+(chssbrd[0].length)+")");
 			}
 		}
 		 // While the initial Y position is invalid, keep checking for a new Y position
 		 while(initY < 0 || initY > chssbrd.length-1){
-			 System.out.print("Please input the initial y position of the knight: ");
-			 initY = s.nextInt() -1;
+			 System.out.print("Please input the initial y position of the knight(1-"+(chssbrd.length)+"): ");
+			 //If the next line in the scanner is an int, accept it, else, don't
+			 if(s.hasNextInt()){
+				 initY = s.nextInt()-1;
+			 }else {
+				 s.nextLine();
+			 }
+			 //If the input is not within range, send a message telling the user that, and ask them to try again
 			 if(initY < 0 || initY > chssbrd.length-1){
 				 System.out.println("Sorry that is not a valid y position, please try again. (Valid inputs are from 1-"+(chssbrd.length)+")");
 			 }
