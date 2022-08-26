@@ -169,6 +169,7 @@ public class KnightsTour{
 	 		//If the next line in the scanner is an int, accept it, else, don't
 	 		if(s.hasNextInt()){
 	 			initX = s.nextInt()-1;
+				s.nextLine();
 			}else {
 	 			s.nextLine();
 			}
@@ -183,6 +184,7 @@ public class KnightsTour{
 			 //If the next line in the scanner is an int, accept it, else, don't
 			 if(s.hasNextInt()){
 				 initY = s.nextInt()-1;
+				 s.nextLine();
 			 }else {
 				 s.nextLine();
 			 }
